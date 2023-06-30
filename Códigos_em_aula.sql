@@ -81,8 +81,33 @@ SELECT * FROM produtos WHERE Marca_Produto ='DELL' OR Marca_Produto ='SAMSUNG';
  SELECT COUNT(DISTINCT escolaridade) FROM clientes;
  
  -- soma os valores de uma coluna 
- SELECT SUM(RECEITA_VENDA) FROM produtos;
+ SELECT SUM(Receita_Venda) FROM pedidos;
+ 
+ -- traz a média dos valores da coluna
+ SELECT AVG(receita_venda) FROM pedidos;
+ 
+ -- retorna o valor minimo da coluna   
+ -- FOI ESCRITO EM MAIÚSCOLO PARA MOSTRAR QUE O SISTEMA ENTENDE TANTO MINUSCULO COMO MAIÚSCULO SEM A NECESSIDADE DE ESTAR COM AS LETRAS IGUAIS 
+SELECT MIN(RECEITA_VENDA) FROM PEDIDOS;
  
 
+-- retorna o valor máximo da coluna 
+SELECT MAX(receita_venda) FROM pedidos;
+
+
+-- _____________________________________________________________________________________________________________________________________________________________
+
+-- AULA 5  Criando agrupamentos com GROUP BY E REVISÃO DA AULA 4
+
+-- CRIE UMA CONSULTA PARA DESCOBRIR O TOTAL DE CLIENTES POR SEXO 
+SELECT Sexo, COUNT(*) AS 'QTD_CLIENTES' FROM clientes GROUP BY Sexo;
+
+-- faça uma consulta na tabela de produtos para retornar o total de produtos por marca 
+
+SELECT Marca_Produto, COUNT(*) AS 'QTD_PRODUTOS' FROM produtos GROUP BY Marca_Produto;
+
+-- faça uma consulta na tabela pedidos e descubra a receita total, custo total por id_loja.
+
+SELECT ID_Loja, SUM(Receita_venda) AS 'RECEITA TOTAL', SUM(Custo_Venda) AS 'CUSTO TOTAL' FROM pedidos GROUP BY ID_Loja;
 
 
