@@ -41,9 +41,10 @@ SELECT * FROM produtos ORDER BY Preco_Unit ; -- ORDENA DO MENOR PARA O MAIOR
 
 SELECT * FROM produtos ORDER BY Preco_Unit DESC ; -- ORDENA DO MAIOR PARA O MENOR 
 
-
+-- _________________________________________________________________________________________________________________
 
 -- Aula 3 WHERE 
+
 -- pesquisa os produtos com preço igual ou maior que 1800 reais		
 SELECT* FROM produtos WHERE Preco_Unit >= 1800;
 
@@ -63,7 +64,24 @@ SELECT* FROM clientes WHERE Estado_Civil = 's' AND Sexo = 'M';
 -- MOSTRA APENAS OS PRODUTOS DA DELL OU SAMSUNG
 SELECT * FROM produtos WHERE Marca_Produto ='DELL' OR Marca_Produto ='SAMSUNG';
 
+
+-- ________________________________________________________________________________________________________________________
  
+ -- AULA 4 
+ 
+ -- CONTA A QUANTIDADE DE VALORES DA COLUNA    **** NÃO CONTA OS VALORES NULL ****
+ SELECT COUNT(Nome) FROM clientes ;
+ SELECT COUNT(Telefone) FROM clientes;
+ -- na linha a cima exemplifica que o count não conta linhas vazias nesta forma 
+ 
+ -- CONTA A QUANTIDADE DE LINHAS NA TABELA incluindo linhas vazias
+ SELECT COUNT(*) FROM CLIENTES;
+ 
+ -- conta quantas categorias ou nomes iguais tem na mesma linha 
+ SELECT COUNT(DISTINCT escolaridade) FROM clientes;
+ 
+ -- soma os valores de uma coluna 
+ SELECT SUM(RECEITA_VENDA) FROM produtos;
  
 
 
