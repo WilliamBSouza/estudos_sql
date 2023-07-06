@@ -110,4 +110,34 @@ SELECT Marca_Produto, COUNT(*) AS 'QTD_PRODUTOS' FROM produtos GROUP BY Marca_Pr
 
 SELECT ID_Loja, SUM(Receita_venda) AS 'RECEITA TOTAL', SUM(Custo_Venda) AS 'CUSTO TOTAL' FROM pedidos GROUP BY ID_Loja;
 
+-- _______________________________________________________________________________________________________________________________________________________
+
+-- AULA 6 RELACIONAMENTO DE TABELAS COM INNER JOIN
+
+SELECT* FROM pedidos;
+SELECT* FROM lojas;
+
+-- TABELA A ---> TABELA FATO ---> TABELA PEDIDOS
+-- TABELA B ---> TABELA DIMENSÃO ---> TABELA LOJAS
+
+-- CHAVE PRIMÁRIA (lojas)---> ID_Loja
+-- CHAVE ESTRANGEIRA (pedidos)---> ID_loja
+
+
+
+-- na linha a baixo do select usamos o asterisco na frente do pedidos para selecionar toda a tabela para fazer o join
+SELECT 
+	pedidos.*, 
+    lojas.Loja,
+    lojas.Gerente,
+    lojas.Telefone
+FROM pedidos
+INNER JOIN lojas
+	ON pedidos.ID_Loja = Lojas.ID_Loja;
+
+
+
+
+
+
 
